@@ -20,3 +20,9 @@
 .App-link {
   color: #09d3ac;
 }
+
+.wrapper {
+  background-color: red;
+  margin: 0 auto;
+  width: calc(100vw - 40%)
+}
