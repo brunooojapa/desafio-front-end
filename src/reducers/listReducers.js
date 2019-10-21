@@ -1,6 +1,7 @@
 const initialState = {
   loading: false,
-  list: []
+  list: {},
+  addPokemon: {}
 };
 
 export default function list(state = initialState, action) {
@@ -10,6 +11,8 @@ export default function list(state = initialState, action) {
       return { ...state, loading: action.item };
     case 'ADD_LIST':
       return { ...state, list: action.obj };
+    case 'ADD_POKEMON':
+      return { ...state, addPokemon: action.obj };
     default:
       return state;
   }

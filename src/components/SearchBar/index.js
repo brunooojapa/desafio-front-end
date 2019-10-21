@@ -29,7 +29,7 @@ class SearchBar extends Component {
           show: false
         });
         console.log(response);
-        this.props.addList([response]);
+        this.props.addList(response);
       })
       .catch(error => {
         console.log('==== response  error====');
@@ -74,7 +74,7 @@ class SearchBar extends Component {
 }
 
 const mapStateToProps = state => ({
-  list: state.list
+  listStore: state.list
 });
 
 const mapDispachToProps = dispatch => bindActionCreators(listActions, dispatch);

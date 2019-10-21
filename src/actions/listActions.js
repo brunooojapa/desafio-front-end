@@ -11,3 +11,10 @@ export function addList(obj) {
     obj
   };
 }
+
+export function addPokemon(obj) {
+  return {
+    type: 'ADD_POKEMON',
+    obj
+  };
+}
