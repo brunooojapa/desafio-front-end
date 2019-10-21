@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  background: red url(../src/assets/images.jpeg) repeat 100% 100%;
+  height: 100vh;
+  border: 2px solid red
 }
 
 .App-logo {
@@ -21,8 +24,50 @@
   color: #09d3ac;
 }
 
+
+
 .wrapper {
-  background-color: red;
+  background-color: #fff;
+  padding: 5px;
   margin: 0 auto;
-  width: calc(100vw - 40%)
+  width: calc(100vw - 40%);
+  height: 100vh;
+}
+
+.hero-header>header {
+  background-color: red
+}
+
+.App a {
+  width: 100%;
+  color: #fff
+}
+
+.nes-field .is-inline {
+  display: flex
+}
+
+img {
+  vertical-align: middle;
+  border-style: none;
+  width: 30%;
+  height: 50%;
+}
+
+input#my-upload-btn {
+  width: 100%;
+  text-align: center;
+  display: block;
+}
+
+.photoUpload {
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  padding-bottom: 40px
+}
+
+.blc-left {
+  width: 80%;
+  margin: 0 auto;
 }

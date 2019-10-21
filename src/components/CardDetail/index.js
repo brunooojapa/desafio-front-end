@@ -5,8 +5,9 @@ import * as listActions from '../../actions/listActions';
 import { connect } from 'react-redux';
 import { Types } from '../Types';
 import { Abilities } from '../Abilities';
-import { PokemonEvolutionChain } from '../Evolution';
+import { Evolution } from '../Evolution';
 import { Stats } from '../Stats';
+import { Divider } from '@material-ui/core';
 
 class cardDetails extends Component {
   constructor(props) {
@@ -42,28 +43,42 @@ class cardDetails extends Component {
             {this.props.listStore.itemDetails.name}
           </h1>
 
-          <img
-            className='list-img'
-            alt={this.props.listStore.itemDetails.name}
-            title={this.props.listStore.itemDetails.name}
-            src={
-              this.state.img === null
-                ? this.props.listStore.itemDetails.sprites.front_default
-                : this.state.img
-            }
-          />
-          <input
-            id='my-upload-btn'
-            type='file'
-            accept='.jpg, .jpeg, .png'
-            onChange={this.handleLoadLocalFile}
-          />
-          <p>weight: {this.props.listStore.itemDetails.weight}</p>
-          <p>height: {this.props.listStore.itemDetails.height}</p>
-          <Stats stats={this.props.listStore.itemDetails.stats} />
-          <Types types={this.props.listStore.itemDetails.types} />
-          <Abilities abilities={this.props.listStore.itemDetails.abilities} />
-          <PokemonEvolutionChain id={this.props.listStore.itemDetails.id} />
+          <div>
+            <img
+              className='list-img'
+              alt={this.props.listStore.itemDetails.name}
+              title={this.props.listStore.itemDetails.name}
+              src={
+                this.state.img === null
+                  ? this.props.listStore.itemDetails.sprites.front_default
+                  : this.state.img
+              }
+            />
+            <div className='photoUpload'>
+              <input
+                id='my-upload-btn'
+                type='file'
+                accept='.jpg, .jpeg, .png'
+                onChange={this.handleLoadLocalFile}
+              />
+            </div>
+            <p>weight: {this.props.listStore.itemDetails.weight}</p>
+            <p>height: {this.props.listStore.itemDetails.height}</p>
+          </div>
+          <Divider />
+          <div className='blc-left'>
+            <h4>Status</h4>
+            <Stats stats={this.props.listStore.itemDetails.stats} />
+            <h4>Type</h4>
+            <Types types={this.props.listStore.itemDetails.types} />
+          </div>
+          <Divider />
+          <div className='blc-right'>
+            <h4>Abilities</h4>
+            <Abilities abilities={this.props.listStore.itemDetails.abilities} />
+            <h4>Evolution</h4>
+            <Evolution id={this.props.listStore.itemDetails.id} />
+          </div>
         </div>
       </div>
     );

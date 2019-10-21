@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { ChipSet, Chip } from '@material/react-chips';
-import Axios from 'axios';
 
 export class Types extends Component {
   constructor(props) {
@@ -14,8 +13,8 @@ export class Types extends Component {
 
   getPokemonsType(typeURL) {
     if (!typeURL) return;
-    return Axios.get(typeURL)
-      .then(response => response)
+    return fetch(typeURL)
+      .then(response => response.json())
       .then(data => {
         this.setState({ pokemonsType: data.pokemon });
       });
@@ -24,19 +23,19 @@ export class Types extends Component {
   renderPokemonTypes() {
     if (!this.props.types) return;
 
-    let listTypes = [];
+    let typesList = [];
 
     this.props.types.map(item => {
-      listTypes.push(
+      typesList.push(
         <Chip
-          label={item.type.name}
-          id={item.type.name}
-          key={item.type.name}
           onClick={() => this.getPokemonsType(item.type.url)}
+          id={item.type.name}
+          label={item.type.name}
+          key={item.type.name}
         />
       );
     });
-    return <ChipSet choice>{listTypes}</ChipSet>;
+    return <ChipSet choice>{typesList}</ChipSet>;
   }
 
   renderPokemonsType() {

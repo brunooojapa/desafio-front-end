@@ -50,11 +50,12 @@ class SearchBar extends Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <div className='search-group'>
+          <div class='nes-field is-inline'>
             <input
               type='text'
+              class='nes-input is-success'
+              type='text'
               ref='name'
-              className='search-input'
               placeholder='pikachu'
             />
             <button type='submit' className='nes-btn'>

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class PokemonEvolutionChain extends Component {
+export class Evolution extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -10,10 +10,10 @@ export class PokemonEvolutionChain extends Component {
   }
 
   componentDidMount() {
-    this.getPokemonEvolutionChain(this.props.id);
+    this.getEvolution(this.props.id);
   }
 
-  getPokemonEvolutionChain(id) {
+  getEvolution(id) {
     return fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
       .then(response => response.json())
       .then(data => {
@@ -63,7 +63,7 @@ export class PokemonEvolutionChain extends Component {
     let evoChainList = [];
     this.state.evolutionChain.map(item => {
       evoChainList.push(
-        <React.Fragment key={item.species_name}>
+        <div key={item.species_name}>
           {!item.item ? (
             <p>
               {item.species_name} at level {item.min_level}
@@ -73,7 +73,7 @@ export class PokemonEvolutionChain extends Component {
               {item.species_name} using {item.item.name}
             </p>
           )}
-        </React.Fragment>
+        </div>
       );
     });
 

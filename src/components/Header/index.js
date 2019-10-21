@@ -13,11 +13,17 @@ class Header extends Component {
         <AppBar position='static' color='default' className='header'>
           <Toolbar>
             <Link to='/'>
-              <h1>PokeDex v1.0</h1>
+              <div className='logo'>
+                <i class='nes-ash'></i>
+                <h1> PokeDex v1.0 </h1>
+              </div>
             </Link>
             {this.props.listStore.loading === false ? null : (
               <Link to='/details'>
-                <h1>Store</h1>
+                <div className='btn-store'>
+                  <h1>Store</h1>
+                  <i class='nes-pokeball'></i>
+                </div>
               </Link>
             )}
           </Toolbar>

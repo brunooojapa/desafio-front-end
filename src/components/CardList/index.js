@@ -63,27 +63,26 @@ class CardList extends Component {
                     />
 
                     <div className='list-item_text'>
-                      <h2 className='item-title'>{value.title}</h2>
-                      <h3 className='item-sub'>
-                        <span className='list-item_text-bolder '>Name:</span>
-                        {value.name}
-                      </h3>
+                      <h2 className='item-title'>
+                        {value.id} -{value.name}{' '}
+                      </h2>
+                      <Link to='/cardDetails'>
+                        <button
+                          className='nes-btn is-primary'
+                          onClick={() => this.details(value)}
+                        >
+                          Details
+                        </button>
+                      </Link>
+                      <Link>
+                        <button
+                          className='nes-btn is-error'
+                          onClick={() => this.removePokemon(value.id)}
+                        >
+                          Remove!
+                        </button>
+                      </Link>
                     </div>
-                    <Link to='/cardDetails'>
-                      <button
-                        className='nes-btn is-primary'
-                        onClick={() => this.details(value)}
-                      >
-                        Details
-                      </button>
-                    </Link>
-
-                    <button
-                      className='nes-btn is-error'
-                      onClick={() => this.removePokemon(value.id)}
-                    >
-                      Remove!
-                    </button>
                   </ListItem>
                   <Divider />
                 </div>

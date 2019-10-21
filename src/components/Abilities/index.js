@@ -8,8 +8,8 @@ export class Abilities extends Component {
   }
 
   getAbilityShortEffect(url) {
-    return Axios.get(url)
-      .then(response => response)
+    return fetch(url)
+      .then(response => response.json())
       .then(data => {
         this.setState({
           showShortEffect: true,
