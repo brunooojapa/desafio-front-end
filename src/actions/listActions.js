@@ -18,3 +18,10 @@ export function addPokemon(obj) {
     obj
   };
 }
+
+export function itemDetails(obj) {
+  return {
+    type: 'ITEM_DETAILS',
+    obj
+  };
+}

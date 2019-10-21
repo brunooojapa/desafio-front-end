@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { AppBar, Toolbar } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import './index.css';
-import SearchBar from '../SearchBar';
+import { bindActionCreators } from 'redux';
+import * as listActions from '../../actions/listActions';
+import { connect } from 'react-redux';
 
 class Header extends Component {
   render() {
@@ -13,7 +15,11 @@ class Header extends Component {
             <Link to='/'>
               <h1>PokeDex v1.0</h1>
             </Link>
-            <SearchBar />
+            {this.props.listStore.loading === false ? null : (
+              <Link to='/details'>
+                <h1>Store</h1>
+              </Link>
+            )}
           </Toolbar>
         </AppBar>
       </div>
@@ -21,4 +27,13 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = state => ({
+  listStore: state.list
+});
+
+const mapDispachToProps = dispatch => bindActionCreators(listActions, dispatch);
+
+export default connect(
+  mapStateToProps,
+  mapDispachToProps
+)(Header);

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import './index.css';
 import { bindActionCreators } from 'redux';
 import * as listActions from '../../actions/listActions';
@@ -17,10 +16,11 @@ class Card extends Component {
     console.log(!this.props.listStore.list.name);
   }
 
-  teste = () => {
-    let poke = [this.props.listStore.list];
+  pokeball = () => {
+    let poke = [];
     poke.push(this.props.listStore.list);
     this.props.addPokemon(poke);
+    this.props.loading(true);
     this.setState({ show: true });
     setTimeout(() => {
       this.setState({ show: false });
@@ -44,7 +44,10 @@ class Card extends Component {
               }
             ></img>
             <h2>{this.props.listStore.list.name}</h2>
-            <button className='nes-btn is-success' onClick={() => this.teste()}>
+            <button
+              className='nes-btn is-success'
+              onClick={() => this.pokeball()}
+            >
               CATCH!
             </button>
             <Snackbar
