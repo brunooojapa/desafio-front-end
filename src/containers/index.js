@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../App.css';
+import Header from '../components/Header';
 
 class indexContainer extends Component {
   state = {};
@@ -9,7 +10,9 @@ class indexContainer extends Component {
   render() {
     return (
       <div className='App'>
-        <main className='wrapper'>Testando</main>
+        <main className='wrapper'>
+          <Header />
+        </main>
       </div>
     );
   }

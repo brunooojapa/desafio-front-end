@@ -1,5 +1,6 @@
 const initialState = {
-  loading: false
+  loading: false,
+  list: []
 };
 
 export default function list(state = initialState, action) {
@@ -7,7 +8,8 @@ export default function list(state = initialState, action) {
   switch (action.type) {
     case 'LOADING':
       return { ...state, loading: action.item };
-
+    case 'ADD_LIST':
+      return { ...state, list: action.obj };
     default:
       return state;
   }
